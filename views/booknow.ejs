@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beauty Parlour Appointment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5vw;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left a, .nav-right a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-left a:hover, .nav-right a:hover {
+      color: #6C63FF;
+    }
+
+    .form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: "Edu AU VIC WA NT Arrows", cursive;
+      color: #333;
+    }
+
+    .form-container label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+      color: #555;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6C63FF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-container button:hover {
+      background-color: #5a54e5;
+    }
+
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #e0f7e9;
+      color: #28a745;
+      border: 1px solid #b2dfdb;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .home-button {
+        display: inline-block;
+        text-align: center;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #6C63FF;
+        font-weight: 500;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+      
+      .home-button:hover {
+        color: #5a54e5;
+        text-decoration: underline;
+      }
+      
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/services">Services</a>
+      <a href="/beautyproducts">Beauty Products</a>
+      <a href="/contact">Contact Us</a>
+    </div>
+    <div class="nav-right">
+      <a href="#login">Log In</a>
+    </div>
+  </nav>
+
+  <!-- Form Section -->
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Book Your Appointment</h2>
+
+      <!-- Thank You Message -->
+      <div class="thank-you-message" id="thank-you-message">
+        😊 Thanks for choosing us, we will contact you soon.
+      </div>
+
+      <form id="appointment-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" name="contact" required />
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="time">Preferred Time</label>
+        <input type="time" id="time" name="time" required />
+
+        <label for="appointment-mode">Mode of Appointment</label>
+        <select id="appointment-mode" name="appointment-mode" required>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required />
+
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" required />
+
+        <button type="submit">Book Appointment</button>
+        <a href="/" class="home-button">← Return to Home</a>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("appointment-form");
+    const thankYouMessage = document.getElementById("thank-you-message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Show the thank you message
+      thankYouMessage.style.display = "block";
+
+      // Reset form fields
+      form.reset();
+
+      // Hide thank you message after 5 seconds
+      setTimeout(() => {
+        thankYouMessage.style.display = "none";
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
